@@ -6,6 +6,11 @@ OCCUPANCY_OPTIONS = {
     '3': 'triple-sharing',
     '4': 'quad-sharing',
 }
+GENDER_TYPE = {
+    '1': 'male',
+    '2': 'Female',
+    '3': 'Other',
+}
 
 class Provider(models.Model):
     fname = models.CharField(max_length=30)
@@ -15,6 +20,7 @@ class Provider(models.Model):
     city = models.CharField(max_length=25)
     mobile = models.CharField(max_length=20)
     occupancy = models.CharField(max_length=1, choices=OCCUPANCY_OPTIONS.items())
+    gender = models.CharField(max_length=1, choices=GENDER_TYPE.items())
 
     def __str__(self):
         return f"{self.fname} {self.lname}"
@@ -27,6 +33,7 @@ class Renter(models.Model):
     city = models.CharField(max_length=25)
     mobile = models.CharField(max_length=20)
     req_occupancy = models.CharField(max_length=1, choices=OCCUPANCY_OPTIONS.items())
+    gender = models.CharField(max_length=1, choices=GENDER_TYPE.items())
 
     def __str__(self):
         return f"{self.fname} {self.lname}"
