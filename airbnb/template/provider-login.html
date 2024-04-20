@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renter Information Form</title>
+    <title>Provider Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,30 +10,22 @@
             padding: 0;
             background-color: #f0f0f0;
         }
-
         .container {
-            max-width: 600px;
+            max-width: 400px;
             margin: 50px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
-        h2 {
-            text-align: center;
-        }
-
         .form-group {
             margin-bottom: 20px;
         }
-
         label {
             display: block;
             font-weight: bold;
             margin-bottom: 5px;
         }
-
         input[type="text"],
         input[type="email"],
         input[type="number"],
@@ -45,11 +36,9 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
-
         input[type="radio"] {
             margin-right: 5px;
         }
-
         input[type="submit"] {
             background-color: #4caf50;
             color: #fff;
@@ -59,7 +48,6 @@
             cursor: pointer;
             font-size: 16px;
         }
-
         input[type="submit"]:hover {
             background-color: #45a049;
         }
@@ -67,8 +55,9 @@
 </head>
 <body>
     <div class="container">
-        <h2>Renter Information Form</h2>
-        <form action="#" method="POST">
+        <h2>Login Page</h2>
+        <form method="POST" action="/post">
+            {% csrf_token %}
             <div class="form-group">
                 <label for="fname">First Name:</label>
                 <input type="text" id="fname" name="fname" required>
@@ -97,10 +86,10 @@
                 <label for="req_occupancy">Requested Occupancy:</label>
                 <select id="req_occupancy" name="req_occupancy" required>
                     <option value="">Select</option>
-                    <option value="single-sharing">Single Sharing</option>
-                    <option value="double-sharing">Double Sharing</option>
-                    <option value="triple-sharing">Triple Sharing</option>
-                    <option value="quad-sharing">Quad Sharing</option>
+                    <option value="single">Single</option>
+                    <option value="double">Double</option>
+                    <option value="triple">Triple</option>
+                    <option value="quad">Quad</option>
                 </select>
             </div>
             <div class="form-group">
@@ -111,7 +100,7 @@
                 <label for="female">Female</label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Submit">
+                <input type="submit" value="Host_room">
             </div>
         </form>
     </div>

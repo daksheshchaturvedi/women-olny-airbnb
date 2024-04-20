@@ -3,57 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        /* div {
-            display: flex ;height:auto; width: 270px; background-color: white;
-        } */
-    </style>
     <title>Document</title>
+    <style>
+        body{
+            background-color: bisque;
+        }
+        div{
+            text-align: center;
+        }
+        .box{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 15px;
+        }
+        .items{
+            background-color: coral;
+            border: 3px black solid;  
+            border-radius: 5px;
+        }
+        #top-box{
+            display: grid;
+            grid-template-columns: 20fr 1fr 1fr;
+            grid-gap:0px;
+            grid-column-start: 1;
+            grid-column-end: 4;
+
+        }
+        .items{
+            text-align: centre;
+        }
+        .logo{
+            margin-right: 0px;
+            text-align: center;
+            background-color: aliceblue;
+            border: 2px red solid;
+            border-radius: 5pz;
+        }
+        .button{
+            
+            margin: 20px 1px;
+            height: 50%;
+            width: 60px;
+            text-align: center;
+            background-color: lightseagreen;
+            border: 2px blue solid;
+            border-radius: 5px;
+        }
+        .when{
+            text-align: center;
+            width: 100%;
+        }
+        .when > input {
+            display: inline;
+
+        }
+        .check {
+            /* position: absolute; */
+            display: inline
+        }
+        .where{
+            text-align: center;
+        }
+        .who{
+            text-align: center;
+        }
+        .login{
+            margin-left: 40px;
+        }
+
+        #footer{
+            text-align:left;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            
+            grid-column-start: 1;
+            grid-column-end: 4;
+        }
+        .about{
+            border-right: 1px black solid;
+        }
+        .about > h5{
+            border-bottom: 1px black solid;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div style="height:55px; background-color: yellow;">
-        <h2 style="text-align: center;padding-top: 13px">Login Details</h2>
-    </div>
-
-
-    <div style = "display: flex ;height:200px; background-color: orange">
-
-
-        <div style="width: 33.3%; height: 100%; border: black; background-color: blue">
-            <h1 style="text-align: center; padding-top: 53px">Share your room</h1>
-            <a href="{% url 'login' %} " target="_blank" style="color: black;">CLick here to go to login page</a>
+    <div class="box">
+        <div class="items" id="top-box"> 
+            <div class="logo">
+                <h1>SHE SHARE VACATION RENTALS</h1>
+            </div>
+            <div class="button login">
+                <p>Login</p>
+            </div>
+            
+        <div class="button"><p>Register</p></div>
         </div>
-
-        <div style="width: 33.3%; height: 100%; border: black; background-color: purple">
-            <h1 style="text-align: center;padding-top: 53px">rent a room</h1>
-        </div>
-
-        <div style="width: 33.4%; height: 100%; border: black; background-color: white">
+        <div class="items"><p><a href="{% url 'provider-login' %}">Share your room</a></p></div>
+        <div class="items"><p><a href="{% url 'renter-login' %}">Rent a room</a></p></div>
+        <div class="items">
             <ul>
-                <li><h2>welcome</h2></li>
-                <li><h2>safety</h2></li>
-                <li><h2>advanture</h2></li>
-                <li><h2>community</h2></li>
+                <li class="clickable">Welcome</li>
+                <li class="clickable">Safety</li>
+                <li class="clickable">Adventure</li>
+                <li class="clickable">Community</li>
             </ul>
         </div>
-
-
+        <!--3rd row start-->
+        <div class="items when"><p>When</p>
+            <p class="check">Check-in</p>
+            <input type="date" required>
+            <p class="check">Check-out</p>
+            <input type="date" required>
+        </div>
+        <div class="items where">
+            <p>Where</p>
+            <input type="search"  placeholder="Seach Destination" required>
+        </div>
+        <div class="items who">
+            <p>Who</p>
+            <h5>Create A profile</h5>
+        </div>
+        <!--3rd row end-->
+        <div class="items">Lucknow,UP</div>
+        <div class="items">Delhi,Delhi</div>
+        <div class="items">Ranchi,Jharkhand</div>
+        <div class="items">Noida,Delhi</div>
+        <div class="items">Agra,UP</div>
+        <div class="items">Pune,Mumbai</div>
+        <!--footer start-->
+        <div class="items" id="footer"><div class="about">
+            <h5>She-Share</h5>
+            <ul><li>About us</li>
+            <li>Career</li>
+            <li>Contact us</li>
+            <li>Follow us</li>
+            </ul>
+        </div>
+        <div class="about">
+            <h5>Support</h5>
+            <ul><li>FAQ</li>
+                <li>Cancellation prolicy</li>
+            </ul>
+        </div>
+        <div class="about">
+            <h5>Become a host</h5>
+            <ul>
+                <li>Hosting resorces</li>
+                <li>Hosting responsibility</li>
+                <li>Share a room</li>
+                <li>Pets</li>
+            </ul>
+        </div>
+        <div class="about">
+            <h5>Terms & Condition</h5>
+            <ul>
+                <li>Terms & Condition</li>
+                <li>Privacy policy</li>
+            </ul>
+        </div>
     </div>
-    
-
-    <div style="height: 200px; background-color: red;">
-        hello
     </div>
-
-
-    <div style="height: 240px; background-color: pink;">
-        hello
-    </div>
-
-
-    <div style="height: 300px; background-color: purple;">
-        about
-    </div>
-
 </body>
 </html>

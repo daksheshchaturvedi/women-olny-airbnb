@@ -12,28 +12,32 @@ GENDER_TYPE = {
     '3': 'Other',
 }
 
+
 class Provider(models.Model):
+    objects = None
     fname = models.CharField(max_length=30)
     lname = models.CharField(max_length=30)
     mail = models.EmailField()
     age = models.IntegerField()
     city = models.CharField(max_length=25)
     mobile = models.CharField(max_length=20)
-    occupancy = models.CharField(max_length=1, choices=OCCUPANCY_OPTIONS.items())
-    gender = models.CharField(max_length=1, choices=GENDER_TYPE.items())
+    req_occupancy = models.CharField(max_length=10, choices=OCCUPANCY_OPTIONS.items())
+    gender = models.CharField(max_length=8, choices=GENDER_TYPE.items())
 
     def __str__(self):
         return f"{self.fname} {self.lname}"
 
+
 class Renter(models.Model):
+    objects = None
     fname = models.CharField(max_length=30)
     lname = models.CharField(max_length=30)
     mail = models.EmailField()
     age = models.IntegerField()
     city = models.CharField(max_length=25)
     mobile = models.CharField(max_length=20)
-    req_occupancy = models.CharField(max_length=1, choices=OCCUPANCY_OPTIONS.items())
-    gender = models.CharField(max_length=1, choices=GENDER_TYPE.items())
+    req_occupancy = models.CharField(max_length=10, choices=OCCUPANCY_OPTIONS.items())
+    gender = models.CharField(max_length=8, choices=GENDER_TYPE.items())
 
     def __str__(self):
         return f"{self.fname} {self.lname}"
