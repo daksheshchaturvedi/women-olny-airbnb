@@ -41,7 +41,7 @@ def renter_form(request):
         renter.save()
 
         messages.success(request, 'Login successfully and redirect to home page')
-        return redirect('home')
+        return redirect('export/')
     else:
         return render(request, 'not_found')
 
@@ -70,6 +70,15 @@ def provider_form(request):
         provider.save()
 
         messages.success(request, 'Login successfully and redirect to home page')
-        return redirect('home')
+        return redirect('export/')
     else:
         return render(request, 'notfound')
+
+
+
+def your_view(request):
+    providers = Provider.objects.all()
+    renters = Renter.objects.all()
+    return render(request, 'matches.html', {'providers': providers, 'renters': renters})
+
+
