@@ -26,6 +26,24 @@
         color: #333;
         margin-bottom: 20px;
     }
+    .form-group {
+    text-align: center;
+    margin-top: 20px; /* Adjust as needed */
+    }
+
+    .form-group input[type="button"] {
+        padding: 10px 20px;
+        background-color: #007bff; /* Adjust color as needed */
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .form-group input[type="button"]:hover {
+        background-color: #0056b3; /* Adjust hover color as needed */
+    }
     </style>
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
@@ -35,6 +53,9 @@
         <h3>Your Form has been posted successfully</h3>
         <h3>Wait for some time, we've received your data</h3>
         <h3>We will send you data to your email address if we find any matches for you</h3>
+        <div class="form-group">
+            <a href="{% url 'home' %}"><input type="button" value="Go Back to Home"></a>
+        </div>
     </div>
 </body>
 </html>
