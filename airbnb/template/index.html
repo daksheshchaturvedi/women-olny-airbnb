@@ -1,91 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
-            background-color: bisque;
-        }
-        div{
-            text-align: center;
-        }
-        .box{
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-gap: 15px;
-        }
-        .items{
-            background-color: coral;
-            border: 3px black solid;  
-            border-radius: 5px;
-        }
-        #top-box{
-            display: grid;
-            grid-template-columns: 20fr 1fr 1fr;
-            grid-gap:0px;
-            grid-column-start: 1;
-            grid-column-end: 4;
+        /* General Styles */
+    body {
+        font-family: "Jura", sans-serif;
+            font-optical-sizing: auto;
+            font-weight:bold;
+            font-style: normal;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
 
-        }
-        .items{
-            text-align: centre;
-        }
-        .logo{
-            margin-right: 0px;
-            text-align: center;
-            background-color: aliceblue;
-            border: 2px red solid;
-            border-radius: 5pz;
-        }
-        .button{
-            
-            margin: 20px 1px;
-            height: 50%;
-            width: 60px;
-            text-align: center;
-            background-color: lightseagreen;
-            border: 2px blue solid;
-            border-radius: 5px;
-        }
-        .when{
-            text-align: center;
-            width: 100%;
-        }
-        .when > input {
-            display: inline;
+    .box {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        display: grid;
+    
+        justify-content: space-between;
+    }
+    .mid-box
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 5px;
+    }
 
-        }
-        .check {
-            /* position: absolute; */
-            display: inline
-        }
-        .where{
-            text-align: center;
-        }
-        .who{
-            text-align: center;
-        }
-        .login{
-            margin-left: 40px;
-        }
+    .items {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        text-align: center;
+    }
 
-        #footer{
-            text-align:left;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            
-            grid-column-start: 1;
-            grid-column-end: 4;
-        }
-        .about{
-            border-right: 1px black solid;
-        }
-        .about > h5{
-            border-bottom: 1px black solid;
-            text-align: center;
-        }
+    /* Top Box */
+    #top-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    .logo h1 {
+        margin: 0;
+        font-size: 24px;
+        color: #333;
+    }
+
+    .button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .button p {
+        margin: 0;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Navigation */
+    .items ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .items ul li {
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .items ul li:hover {
+        background-color: #f0f0f0;
+    }
+
+    /* Search */
+    .when, .where, .who {
+        padding: 20px;
+    }
+
+    input[type="search"] {
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-top: 10px;
+    }
+
+    /* Footer */
+    #footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .about {
+        flex: 1;
+        padding: 0 20px;
+    }
+
+    .about h5 {
+        margin: 0 0 10px;
+        font-size: 20px;
+    }
+
+    .about ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+   
+    .about ul li {
+        margin-bottom: 5px;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    .about ul li:hover {
+        color: #007bff;
+    }
+
     </style>
 </head>
 <body>
@@ -94,14 +150,18 @@
             <div class="logo">
                 <h1>SHE SHARE VACATION RENTALS</h1>
             </div>
-            <div class="button login">
+            <div class="button" style="position :absolute;right:35%">
                 <p>Login</p>
             </div>
-            
-        <div class="button"><p>Register</p></div>
+            <div class="button" style="align-items: end;"><p>Register</p></div>
         </div>
-        <div class="items"><p><a href="{% url 'provider-login' %}">Share your room</a></p></div>
-        <div class="items"><p><a href="{% url 'renter-login' %}">Rent a room</a></p></div>
+        <div class="mid-box">
+        <div class="items" >
+            <p><a href="{% url 'provider-login' %}"><h3 style="margin-top: 25%;">Share your room</h3></a></p>
+        </div>
+        <div class="items">
+            <p><a href="{% url 'renter-login' %}"><h3 style="margin-top: 25%;">Rent a room</h3></a></p>
+        </div>
         <div class="items">
             <ul>
                 <li class="clickable">Welcome</li>
@@ -111,7 +171,8 @@
             </ul>
         </div>
         <!--3rd row start-->
-        <div class="items when"><p>When</p>
+        <div class="items when">
+            <p>When</p>
             <p class="check">Check-in</p>
             <input type="date" required>
             <p class="check">Check-out</p>
@@ -119,51 +180,60 @@
         </div>
         <div class="items where">
             <p>Where</p>
-            <input type="search"  placeholder="Seach Destination" required>
+            <input type="search" placeholder="Search Destination" required>
         </div>
         <div class="items who">
-            <p>Who</p>
-            <h5>Create A profile</h5>
+           
+            <h5>Create A Profile</h5>
+            <ul style="font-weight: bold;">
+                <li class="profile">Smoker</li>
+                <li class="profile">Age</li>
+                <li class="profile">Intrest</li>
+                <li class="profile">Hobbies</li>
+            </ul>
         </div>
         <!--3rd row end-->
-        <div class="items">Lucknow,UP</div>
-        <div class="items">Delhi,Delhi</div>
-        <div class="items">Ranchi,Jharkhand</div>
-        <div class="items">Noida,Delhi</div>
-        <div class="items">Agra,UP</div>
-        <div class="items">Pune,Mumbai</div>
+        <div class="items">Lucknow, UP</div>
+        <div class="items">Delhi, Delhi</div>
+        <div class="items">Ranchi, Jharkhand</div>
+        <div class="items">Noida, Delhi</div>
+        <div class="items">Agra, UP</div>
+        <div class="items">Pune, Mumbai</div></div>
         <!--footer start-->
-        <div class="items" id="footer"><div class="about">
-            <h5>She-Share</h5>
-            <ul><li>About us</li>
-            <li>Career</li>
-            <li>Contact us</li>
-            <li>Follow us</li>
-            </ul>
+        <div class="items" id="footer">
+            <div class="about">
+                <h5>She-Share</h5>
+                <ul>
+                    <li>About us</li>
+                    <li>Career</li>
+                    <li>Contact us</li>
+                    <li>Follow us</li>
+                </ul>
+            </div>
+            <div class="about">
+                <h5>Support</h5>
+                <ul>
+                    <li>FAQ</li>
+                    <li>Cancellation policy</li>
+                </ul>
+            </div>
+            <div class="about">
+                <h5>Become a host</h5>
+                <ul>
+                    <li>Hosting resources</li>
+                    <li>Hosting responsibility</li>
+                    <li>Share a room</li>
+                    <li>Pets</li>
+                </ul>
+            </div>
+            <div class="about">
+                <h5>Terms & Condition</h5>
+                <ul>
+                    <li>Terms & Condition</li>
+                    <li>Privacy policy</li>
+                </ul>
+            </div>
         </div>
-        <div class="about">
-            <h5>Support</h5>
-            <ul><li>FAQ</li>
-                <li>Cancellation prolicy</li>
-            </ul>
-        </div>
-        <div class="about">
-            <h5>Become a host</h5>
-            <ul>
-                <li>Hosting resorces</li>
-                <li>Hosting responsibility</li>
-                <li>Share a room</li>
-                <li>Pets</li>
-            </ul>
-        </div>
-        <div class="about">
-            <h5>Terms & Condition</h5>
-            <ul>
-                <li>Terms & Condition</li>
-                <li>Privacy policy</li>
-            </ul>
-        </div>
-    </div>
     </div>
 </body>
 </html>
